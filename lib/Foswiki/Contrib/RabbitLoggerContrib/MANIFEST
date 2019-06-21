@@ -7,7 +7,3 @@ lib/Foswiki/Logger/RabbitMQLogger.pm
 lib/Foswiki/Contrib/RabbitLoggerContrib/build.pl
 lib/Foswiki/Contrib/RabbitLoggerContrib/Config.spec
 lib/Foswiki/Contrib/RabbitLoggerContrib.pm
-resources/gologger/logstore 0655
-resources/gologger/logreport 0655
-tools/logtail 0655
-tools/logdump 0655
