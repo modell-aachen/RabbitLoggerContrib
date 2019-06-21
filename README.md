@@ -1,0 +1,2 @@
+# RabbitLoggerContrib
+RabbitLoggerContrib
