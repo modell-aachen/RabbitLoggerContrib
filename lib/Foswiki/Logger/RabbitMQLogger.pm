@@ -11,6 +11,7 @@ use strict;
 use warnings;
 
 use JSON;
+use Devel::StackTrace;
 
 use Foswiki::Logger                           ();
 use Foswiki::Iterator::EventIterator          ();
