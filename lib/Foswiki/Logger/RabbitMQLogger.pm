@@ -115,8 +115,8 @@ sub _getQwikiRelease {
     eval {
         my $session = $Foswiki::Plugins::SESSION;
         if($session) {
-            require Foswiki::Plugins::QueryVerionPlugin;
-            $version = Foswiki::Plugins::QueryVerionPlugin::query($session, {_DEFAULT => 'QwikiContrib'});
+            require Foswiki::Plugins::QueryVersionPlugin;
+            $version = Foswiki::Plugins::QueryVersionPlugin::query($session, {_DEFAULT => 'QwikiContrib'});
         }
     };
     return "Q.wiki_$version";
