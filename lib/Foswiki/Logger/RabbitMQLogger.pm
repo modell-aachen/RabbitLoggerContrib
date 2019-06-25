@@ -134,6 +134,9 @@ sub _getTrace {
 
         $traceString = $trace->as_string();
     };
+    if($@) {
+        print STDERR $@;
+    }
 
     return $traceString;
 }
