@@ -89,12 +89,14 @@ sub log {
         },
     };
 
-    if($level =~ m#^(?:warning|error|fatal)$# && (!$Foswiki::cfg{Extensions}{ModacHelpersPlugin}{NoBackendSentry}) && $extra->[0]) {
-        $data->{metadata}->{report} = 'true';
-        $data->{metadata}->{rms_user} = Foswiki::Plugins::ModacHelpersPlugin::getRmsCredentials();
-        $data->{metadata}->{tags} = to_json({type => 'foswiki_backend'});
-        $data->{metadata}->{environment} = $Foswiki::cfg{ModacHelpersPlugin}{Environment} || 'unknown_environment';
-        $data->{metadata}->{release} = _getQwikiRelease();
+    if($level =~ m#^(?:warning|error|fatal)$# && $extra->[0]) {
+        if((!$Foswiki::cfg{Extensions}{ModacHelpersPlugin}{NoBackendSentry}) && (!delete $misc->{noReport})) {
+            $data->{metadata}->{report} = 'true';
+            $data->{metadata}->{rms_user} = Foswiki::Plugins::ModacHelpersPlugin::getRmsCredentials();
+            $data->{metadata}->{tags} = to_json({type => 'foswiki_backend'});
+            $data->{metadata}->{environment} = $Foswiki::cfg{ModacHelpersPlugin}{Environment} || 'unknown_environment';
+            $data->{metadata}->{release} = _getQwikiRelease();
+        }
     }
 
     eval {
